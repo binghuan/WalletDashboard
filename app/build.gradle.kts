@@ -60,24 +60,24 @@ dependencies {
     implementation("androidx.compose.material:material:1.8.3")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
-    
+
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-    
+
     // JSON Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-    
+
     // Hilt for Dependency Injection
     implementation("com.google.dagger:hilt-android:2.51.1")
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-    
+
     // Retrofit for Networking (if needed later)
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.1.0")
-    
+
     // Image Loading
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("androidx.compose.material3:material3-android:1.3.2")

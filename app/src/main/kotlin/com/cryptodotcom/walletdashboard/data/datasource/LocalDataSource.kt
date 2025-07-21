@@ -12,12 +12,12 @@ import javax.inject.Singleton
 
 @Singleton
 class LocalDataSource @Inject constructor() {
-    
-    private val json = Json { 
+
+    private val json = Json {
         ignoreUnknownKeys = true
         isLenient = true
     }
-    
+
     @OptIn(InternalSerializationApi::class)
     fun getCurrencies(): Flow<CurrenciesResponse> = flow {
         val currenciesJson = """
@@ -112,10 +112,14 @@ class LocalDataSource @Inject constructor() {
             "ok": true
         }
         """.trimIndent()
-        
-        emit(json.decodeFromString(CurrenciesResponse.serializer(), currenciesJson))
+
+        emit(
+            json.decodeFromString(
+                CurrenciesResponse.serializer(), currenciesJson
+            )
+        )
     }
-    
+
     @OptIn(InternalSerializationApi::class)
     fun getExchangeRates(): Flow<ExchangeRatesResponse> = flow {
         val exchangeRatesJson = """
@@ -159,10 +163,14 @@ class LocalDataSource @Inject constructor() {
             ]
         }
         """.trimIndent()
-        
-        emit(json.decodeFromString(ExchangeRatesResponse.serializer(), exchangeRatesJson))
+
+        emit(
+            json.decodeFromString(
+                ExchangeRatesResponse.serializer(), exchangeRatesJson
+            )
+        )
     }
-    
+
     @OptIn(InternalSerializationApi::class)
     fun getWalletBalance(): Flow<WalletBalanceResponse> = flow {
         val walletBalanceJson = """
@@ -185,7 +193,11 @@ class LocalDataSource @Inject constructor() {
             ]
         }
         """.trimIndent()
-        
-        emit(json.decodeFromString(WalletBalanceResponse.serializer(), walletBalanceJson))
+
+        emit(
+            json.decodeFromString(
+                WalletBalanceResponse.serializer(), walletBalanceJson
+            )
+        )
     }
 }

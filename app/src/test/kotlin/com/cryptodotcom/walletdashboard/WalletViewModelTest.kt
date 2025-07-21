@@ -60,7 +60,7 @@ class WalletViewModelTest {
     fun `retry triggers data reload`() = runTest {
         // Given
         `when`(repository.getWalletItems()).thenReturn(flowOf(emptyList()))
-        
+
         viewModel = WalletViewModel(repository)
 
         // When

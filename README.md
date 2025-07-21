@@ -44,7 +44,7 @@ A modern Android application that displays cryptocurrency wallet balances with r
 ```bash
 # Clone and build
 git clone <repository-url>
-cd android-interview-onchain-coding-test/WalletDashboard
+cd WalletDashboard
 ./gradlew assembleDebug
 
 # Or open in Android Studio and run
@@ -73,14 +73,15 @@ This app follows Android development best practices:
 - **Reactive Programming**: Kotlin Coroutines and Flow for asynchronous operations
 
 ### Tech Stack
-- **Language**: Kotlin
-- **UI Framework**: Jetpack Compose with Material Design
+- **Language**: Kotlin 2.1.0
+- **UI Framework**: Jetpack Compose with Material Design 3
 - **Architecture**: MVVM with Repository pattern
 - **Dependency Injection**: Hilt
 - **Serialization**: Kotlinx Serialization
 - **Testing**: JUnit, Mockito, Turbine for Flow testing
 - **Reactive Programming**: Kotlin Coroutines and Flow
 - **Build System**: Gradle with Kotlin DSL
+- **Symbol Processing**: KSP (Kotlin Symbol Processing)
 - **Minimum SDK**: API 24 (Android 7.0)
 - **Target SDK**: API 34 (Android 14)
 
@@ -90,10 +91,7 @@ This app follows Android development best practices:
 app/src/main/kotlin/com/cryptodotcom/walletdashboard/
 ├── data/
 │   ├── datasource/
-│   │   ├── LocalDataSource.kt          # Main local JSON data source
-│   │   ├── CurrencyDataSource.kt       # Currency data provider  
-│   │   ├── ExchangeRateDataSource.kt   # Exchange rate data provider
-│   │   └── WalletBalanceDataSource.kt  # Wallet balance data provider
+│   │   └── LocalDataSource.kt          # Main local JSON data source
 │   ├── model/
 │   │   ├── Currency.kt                 # Currency data model
 │   │   ├── ExchangeRate.kt            # Exchange rate data model
@@ -137,7 +135,7 @@ The app uses three JSON data sources as specified in the requirements:
 - **TotalBalanceCard**: Reusable component for displaying total portfolio value
 - **WalletItemCard**: Individual cryptocurrency card with balance and USD value
 - **Comprehensive Previews**: Multiple Preview functions for each component
-- **Material Design**: Consistent Material Design system throughout
+- **Material Design 3**: Consistent Material Design 3 system throughout
 
 ### Reactive Data Flow
 - Uses Kotlin Flow to combine data from multiple sources
@@ -154,7 +152,7 @@ For example: If user has 1.4 BTC and the exchange rate is 10603.9, then:
 USD Value = 1.4 * 10603.9 = 14845.46 USD
 
 ### Modern UI with Compose
-- Material Design system with consistent theming
+- Material Design 3 system with consistent theming
 - Responsive layout with proper spacing
 - Loading and error states with retry functionality
 - Clean card-based design for wallet items
@@ -172,7 +170,7 @@ USD Value = 1.4 * 10603.9 = 14845.46 USD
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd android-interview-onchain-coding-test/WalletDashboard
+   cd WalletDashboard
    ```
 
 2. Open the project in Android Studio:
@@ -299,14 +297,14 @@ The architecture supports easy addition of:
 
 ## Requirements Compliance
 
-✅ **Kotlin**: Entire app written in Kotlin 1.9.10  
+✅ **Kotlin**: Entire app written in Kotlin 2.1.0  
 ✅ **Compile and Run**: Project builds and runs successfully on Android SDK 34  
 ✅ **Reactive Programming**: Uses Kotlin Coroutines and Flow throughout the app  
 ✅ **Git Repository**: Committed to private GitHub repository with clean history  
 ✅ **Architecture**: Clean, well-structured MVVM architecture with DI  
 ✅ **Error Handling**: Proper error scenarios and edge cases handled  
 ✅ **Future-Ready**: Modular architecture supports future feature additions  
-✅ **Modern UI**: Jetpack Compose with Material Design  
+✅ **Modern UI**: Jetpack Compose with Material Design 3  
 ✅ **Testing**: Comprehensive unit tests with Flow testing  
 ✅ **Code Quality**: Clean code with proper separation of concerns  
 
@@ -316,26 +314,29 @@ Key dependencies used in the project:
 
 ```kotlin
 // UI
-implementation("androidx.compose.ui:compose-bom:2023.10.01")
-implementation("androidx.compose.material:material")
-implementation("androidx.activity:activity-compose:1.8.0")
+implementation("androidx.compose.ui:ui:1.8.3")
+implementation("androidx.compose.material:material:1.8.3")
+implementation("androidx.activity:activity-compose:1.10.1")
 
 // Architecture
-implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 // Dependency Injection
-implementation("com.google.dagger:hilt-android:2.48")
-kapt("com.google.dagger:hilt-compiler:2.48")
+implementation("com.google.dagger:hilt-android:2.51.1")
+ksp("com.google.dagger:hilt-android-compiler:2.51.1")
+
+// Coroutines
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
 // Serialization
-implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
 // Testing
 testImplementation("junit:junit:4.13.2")
-testImplementation("org.mockito:mockito-core:4.11.0")
-testImplementation("app.cash.turbine:turbine:1.0.0")
-testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+testImplementation("org.mockito:mockito-core:5.18.0")
+testImplementation("app.cash.turbine:turbine:1.2.1")
+testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
 ```
 
 ## Technical Highlights

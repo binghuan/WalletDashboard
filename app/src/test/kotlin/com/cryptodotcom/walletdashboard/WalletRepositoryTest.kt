@@ -31,17 +31,17 @@ class WalletRepositoryTest {
 
         // Then
         assertEquals(3, walletItems.size)
-        
+
         val btcItem = walletItems.find { it.currency.symbol == "BTC" }
         assertNotNull(btcItem)
         assertEquals(1.4, btcItem!!.balance, 0.001)
         assertEquals(10603.9, btcItem.exchangeRateToUsd, 0.001)
-        
+
         val ethItem = walletItems.find { it.currency.symbol == "ETH" }
         assertNotNull(ethItem)
         assertEquals(20.3, ethItem!!.balance, 0.001)
         assertEquals(340.21, ethItem.exchangeRateToUsd, 0.001)
-        
+
         val croItem = walletItems.find { it.currency.symbol == "CRO" }
         assertNotNull(croItem)
         assertEquals(259.1, croItem!!.balance, 0.001)
