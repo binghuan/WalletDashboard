@@ -102,7 +102,7 @@ fun WalletDashboardScreen(
 @Composable
 fun WalletDashboardScreenPreview() {
     MaterialTheme {
-        // 創建模擬的 WalletItem 數據
+        // Create mock WalletItem data
         val mockBitcoin = WalletItem(
             currency = com.cryptodotcom.walletdashboard.data.model.Currency(
                 coinId = "bitcoin",
@@ -169,10 +169,10 @@ fun WalletDashboardScreenPreview() {
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
-            // 使用 TotalBalanceCard 組件
+            // Use TotalBalanceCard component
             TotalBalanceCard(totalUsdValue = 25700.0)
 
-            // 使用實際的 WalletItemCard 組件
+            // Use actual WalletItemCard components
             WalletItemCard(item = mockBitcoin)
             WalletItemCard(item = mockEthereum)
         }
