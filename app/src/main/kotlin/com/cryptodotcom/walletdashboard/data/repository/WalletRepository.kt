@@ -23,10 +23,12 @@ class WalletRepository @Inject constructor(
         ) { currencyResponse, exchangeResponse, walletResponse ->
 
             walletResponse.wallet.map { balance ->
-                val currency =
-                    currencyResponse.currencies.first { it.symbol == balance.currency }
-                val exchangeRateTier =
-                    exchangeResponse.tiers.first { it.fromCurrency == balance.currency && it.toCurrency == "USD" }
+                val currency = currencyResponse.currencies.first {
+                    it.symbol == balance.currency
+                }
+                val exchangeRateTier = exchangeResponse.tiers.first {
+                    it.fromCurrency == balance.currency && it.toCurrency == "USD"
+                }
                 val rate = exchangeRateTier.rates.first().rate.toDouble()
 
                 WalletItem(
