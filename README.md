@@ -1,3 +1,5 @@
+![](icon-256.png)
+
 # Wallet Dashboard Android App
 
 A modern Android application that displays cryptocurrency wallet balances with real-time USD conversions for BTC, ETH, and CRO currencies.
